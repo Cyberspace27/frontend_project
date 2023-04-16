@@ -9,8 +9,6 @@ import com.demo.base.BasePage;
 
 public class LoginPage extends BasePage {
 	
-	//WebDriver driver;
-	
 	
 	@FindBy(xpath="//input[@name='username']")
 	WebElement userNameTxt;
@@ -19,7 +17,7 @@ public class LoginPage extends BasePage {
 	WebElement passTxt;
 	
 	
-	@FindBy(css =".oxd-button--main")
+	@FindBy(css=".oxd-button--main")
 	WebElement loginBtn;
 	
 	@FindBy(xpath="//div[2]/img[@alt='orangehrm-logo']")

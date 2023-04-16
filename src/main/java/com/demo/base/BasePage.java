@@ -11,6 +11,8 @@ import org.testng.annotations.BeforeMethod;
 
 import com.demo.pages.LoginPage;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 /**
  * @author ariel
  *
@@ -22,7 +24,9 @@ public class BasePage {
 	
 	@BeforeMethod
 	public void setUp() throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+	//	System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
+		WebDriverManager.chromedriver().setup();
+		
 		driver = new ChromeDriver();	
 		//System.setProperty("webdriver.gecko.driver", "C:\\Users\\ariel\\eclipse-workspace\\frontend_project\\geckodriver.exe");
 		//driver = new FirefoxDriver();

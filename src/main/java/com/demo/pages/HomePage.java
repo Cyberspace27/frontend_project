@@ -9,19 +9,25 @@ import com.demo.base.BasePage;
 
 public class HomePage extends BasePage{
 	
-	//public WebDriver driver;
 	
 	public HomePage(WebDriver driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this); //instead of this we can use BaseClass.class
+		PageFactory.initElements(driver, this); //instead of this we can use BasePage.class
 	}
 
-	@FindBy(xpath="//*[@id='']")
+	@FindBy(css="ul.oxd-main-menu > li:nth-child(1) > a.oxd-main-menu-item")
 	WebElement adminTab;
+	
+	@FindBy(xpath="//*[@alt='client brand banner']")
+	WebElement logoImg;
 	
 	public SystemUserPage clickOnAdminTab() {
 		adminTab.click();
-		return new SystemUserPage();
+		return new SystemUserPage(driver);
+	}
+	
+	public boolean verifyDashboadLogo() {
+		return logoImg.isDisplayed();
 	}
 	
 	

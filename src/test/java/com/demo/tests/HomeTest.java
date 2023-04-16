@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import com.demo.base.BasePage;
 import com.demo.pages.HomePage;
+import com.demo.pages.LoginPage;
 import com.demo.pages.SystemUserPage;
 
 /**
@@ -15,19 +16,29 @@ import com.demo.pages.SystemUserPage;
  *
  */
 public class HomeTest extends BasePage{
+	LoginPage login;
 	HomePage home;
 	SystemUserPage sysUser;
-	//WebDriver driver;
 	
 	@Test(priority=3)
 	public void adminTabTest() throws InterruptedException {
-		home = new HomePage(driver);
+		login = new LoginPage(driver);
+		home = login.login("admin", "admin123");
+		Thread.sleep(5000);
+		Assert.assertTrue(home.verifyDashboadLogo());
+		
+	}
+	
+	@Test(priority=4)
+	public void verifySystemUserPageTest() throws InterruptedException {
+		login = new LoginPage(driver);
+		home = login.login("admin", "admin123");
+		Thread.sleep(5000);
 		sysUser = home.clickOnAdminTab();
 		Thread.sleep(3000);
 		String actualUrl = driver.getCurrentUrl();
-		String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
+		String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers";
 		Assert.assertEquals(actualUrl, expectedUrl);
-		
 	}
 
 }
