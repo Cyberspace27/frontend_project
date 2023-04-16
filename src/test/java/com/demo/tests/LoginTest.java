@@ -6,13 +6,14 @@ package com.demo.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.demo.base.BasePage;
+import com.demo.base.BaseTest;
 import com.demo.pages.HomePage;
 
 /**
  * @author ariel
  *
  */
-public class LoginTest extends BasePage{
+public class LoginTest extends BaseTest{
 	
 	
 	HomePage home;
@@ -30,7 +31,7 @@ public class LoginTest extends BasePage{
 		
 		home = login.login("admin", "admin123");
 		
-		String actualUrl = driver.getCurrentUrl();
+		String actualUrl = getDriver().getCurrentUrl();
 		String expectedUrl = "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index";
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}

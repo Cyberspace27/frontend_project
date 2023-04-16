@@ -11,8 +11,9 @@ public class HomePage extends BasePage{
 	
 	
 	public HomePage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this); //instead of this we can use BasePage.class
+		super(driver);
+		//this.driver = driver;
+		//PageFactory.initElements(driver, this); //instead of this we can use BasePage.class
 	}
 
 	@FindBy(css="ul.oxd-main-menu > li:nth-child(1) > a.oxd-main-menu-item")
