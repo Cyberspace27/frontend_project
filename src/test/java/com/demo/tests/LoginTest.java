@@ -5,7 +5,6 @@ package com.demo.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.demo.base.BasePage;
 import com.demo.base.BaseTest;
 import com.demo.pages.HomePage;
 
