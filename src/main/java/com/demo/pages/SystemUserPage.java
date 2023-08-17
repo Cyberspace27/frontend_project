@@ -13,6 +13,10 @@ import com.demo.base.BasePage;
  */
 public class SystemUserPage extends BasePage {
 	
+	/**
+	 * constructor method SystemUserPage
+	 * @param driver
+	 */
 	public SystemUserPage(WebDriver driver) {
 		super(driver);
 		
